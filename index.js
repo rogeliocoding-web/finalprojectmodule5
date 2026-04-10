@@ -9,22 +9,25 @@ searchBtn.addEventListener('click', () => {
     if (movieTitle) {
         fetch(`http://www.omdbapi.com/?s=${movieTitle}&apikey=${apiKey}`)
             .then(response => response.json())
-            .then(data => {
+            .then((data) => {
                 if (data.Response === 'True') {
-                    movieResult.innerHTML = `
-                        <h2>${data.Title}</h2>
-                        <p><strong>Year:</strong> ${data.Year}</p>
-                        <p><strong>Genre:</strong> ${data.Genre}</p>
-                        <p><strong>Plot:</strong> ${data.Plot}</p>
-                        <img src="${data.Poster}" alt="${data.Title} Poster">
-                    `;
+                    movieResult.innerHTML = data.Search.map(
+                        (movie) => `
+                                <h2>${movie.Title}</h2>
+                                <p><strong>Year:</strong> ${movie.Year}</p>
+                                <p><strong>Genre:</strong> ${movie.Type}</p>
+                                <p><strong>Plot:</strong> ${movie.imdbID}</p>
+                                <img src="${movie.Poster}" alt="${movie.Title} Poster">
+                        
+                        `
+                    );
                 } else {
                     movieResult.innerHTML = `<p>${data.Error}</p>`;
                 }
             })
-            .catch(error => {
+            .catch((error) => {
                 console.error('Error fetching data:', error);
                 movieResult.innerHTML = `<p>Something went wrong. Please try again later.</p>`;
             });
-    }
-});
+        }
+    });
