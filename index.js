@@ -2,12 +2,12 @@ const movieInput = document.getElementById('movie-input');
 const searchBtn = document.getElementById('search-btn');
 const movieResult = document.getElementById('movie-result');
 
-const apiKey = "http://www.omdbapi.com/?i=tt3896198&apikey=c60eae1a"; // Replace with your OMDb API key
+const apiKey = "c60eae1a"; // Replace with your OMDb API key
 
 searchBtn.addEventListener('click', () => {
     const movieTitle = movieInput.value;
     if (movieTitle) {
-        fetch(`http://www.omdbapi.com/?t=${movieTitle}&apikey=${apiKey}`)
+        fetch(`http://www.omdbapi.com/?s=${movieTitle}&apikey=${apiKey}`)
             .then(response => response.json())
             .then(data => {
                 if (data.Response === 'True') {
