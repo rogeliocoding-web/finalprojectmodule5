@@ -1,21 +1,38 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', system-ui;
+    color: #243e63;
+}
 
 body {
-    font-family: sans-serif;
-    background-color: #f4f4f4;
+    background-color: rgb(163, 161, 161);
     margin: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     min-height: 100vh;
 }
 
-.container {
-    background-color: #fff;
-    padding: 2rem;
-    border-radius: 5px;
+.nav__container {
+    padding: 16px 32px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    width: 400px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: darkslategrey;
+}
+
+.logo {
+    width: 250px;
+    height: 120px;
+    display: block;
+    margin: 0;
+}
+
+#welcome__message {
+    color: #f4f4f4;
 }
 
 h1 {
@@ -23,27 +40,140 @@ h1 {
     margin-bottom: 1.5rem;
 }
 
+#search__box {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    padding-right: 2rem;
+    margin-top: 20px;
+}
+
 .search-container {
     display: flex;
+    align-items: center;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    overflow: hidden;
     margin-bottom: 1.5rem;
 }
 
 #movie-input {
     flex: 1;
     padding: 0.5rem;
-    border: 1px solid #ccc;
-    border-radius: 3px;
+    border: none;
+    outline: none;
+    min-width: 200px;
+}
+
+#sort-filter {
+    padding: 8px;
+    border: none;
+    border-left: 1px solid #ccc;
+    outline: none;
+    background-color: #fff;
+    cursor: pointer;
+    color: #243e63;
 }
 
 #search-btn {
     background-color: #007bff;
     color: #fff;
     border: none;
-    padding: 0.5rem 1rem;
-    border-radius: 3px;
+    padding: 8px 16px;
+    border-radius: 0;
     cursor: pointer;
 }
 
+#search-btn:hover {
+    background-color: #0056b3;
+}
+
+/* Results grid */
 #movie-result {
-    margin-top: 1.5rem;
+    margin-top: 16px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    padding: 16px;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 100%;
+}
+
+/* 4 cards per row on desktop */
+.movie-card {
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    width: calc(25% - 0.75rem);
+    overflow: hidden;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Poster image — fixed height so all cards align */
+.movie-card img {
+    width: 100%;
+    height: 380px;
+    object-fit: cover;
+    display: block;
+}
+
+.movie-card__info {
+    padding: 16px;
+    background-color: rgb(143, 143, 226);
+    flex: 1;
+}
+
+.movie-card__info h2 {
+    font-size: 14px;
+    margin-bottom: 6px;
+    color: #fff;
+}
+
+.movie-card__info p {
+    font-size: 12px;
+    color: #eee;
+    margin-bottom: 4px;
+    line-height: 1.4;
+}
+
+.movie-card__info p strong {
+    color: #fff;
+}
+
+/* Section header (Top Rated / search results label) */
+.results-header {
+    width: 100%;
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 1rem;
+    color: #243e63;
+}
+
+/* Responsive — 2 cards per row on tablets */
+@media (max-width: 900px) {
+    .movie-card {
+        width: calc(50% - 0.5rem);
+    }
+}
+
+/* Responsive — 1 card per row on mobile */
+@media (max-width: 500px) {
+    .movie-card {
+        width: 100%;
+    }
+
+    .logo {
+        width: 120px;
+        height: 60px;
+    }
+
+    #search__box {
+        align-items: center;
+        padding-right: 0;
+    }
 }

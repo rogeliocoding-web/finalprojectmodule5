@@ -7,26 +7,32 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <section>
+    <section id="landing">
       <nav>
         <div class="nav__container">
-            <img class="logo" src="assets/15299-film-102681_1920.jpg" alt="">
-            <h1>Welcome to Rogelio's Movie Database</h1>
+          <img class="logo" src="assets/15299-film-102681_1920.jpg" alt="" />
+          <h1 id="welcome__message">Welcome to Rogelio's Movie Database</h1>
+          <img class="logo" src="assets/15299-film-102681_1920.jpg" alt="" />
         </div>
+        <div id="search__box">
           <h1>Movie Search</h1>
-          
-        <div class="search-container">
-            <input
-              type="text"
-              id="movie-input"
-              placeholder="Enter a movie title"
-            />
+
+          <div class="search-container">
+            <input type="text" id="movie-input" placeholder="Enter a movie title"/>
+            <select id="sort-filter">
+              <option value=""selected>Sort By</option>
+              <option value="A_TO_Z">Alphabetical A to Z</option>
+              <option value="Z_TO_A">Alphabetical Z to A</option>
+              <option value="NEWEST">Newest to Oldest</option>
+              <option value="OLDEST">Oldest to Newest</option>
+            </select>
             <button id="search-btn">Search</button>
           </div>
-          <div id="movie-result"></div>
+        </div>
+
+        <div id="movie-result"></div>
         <script src="index.js"></script>
       </nav>
     </section>
-    
   </body>
 </html>
